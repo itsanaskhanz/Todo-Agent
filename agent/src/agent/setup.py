@@ -20,6 +20,7 @@ class AppContext:
 
 # Gemini setup
 gemini_api_key = os.getenv("API_KEY")
+model_name = os.getenv("MODEL")
 
 external_client = AsyncOpenAI(
     api_key=gemini_api_key,
@@ -27,7 +28,7 @@ external_client = AsyncOpenAI(
 )
 
 model = OpenAIChatCompletionsModel(
-    model="gemini-2.5-flash",
+    model=model_name,
     openai_client=external_client,
 )
 
